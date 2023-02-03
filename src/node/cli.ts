@@ -1,5 +1,10 @@
 import { createServer } from "vite";
-import { name } from "../shared/shared";
+import { version } from "../../package.json";
+import name from './b'
+console.log(name);
+
+console.log(version);
+
 const createDevServer = async () => {
   const server = await createServer({
     server: {

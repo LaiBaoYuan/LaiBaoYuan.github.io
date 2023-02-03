@@ -10,7 +10,12 @@
     "dev-client": "tsc -w -p src/client",
     "dev-node": "DEV=true pnpm build-node -w",
     "dev-shared": "node scripts/copyShared",
-    "dev-watch": "node scripts/watchAndCopy"
+    "dev-watch": "node scripts/watchAndCopy",
+    "build": "run-s build-prepare build-client build-node",
+    "build-prepare": "rimraf dist && node scripts/copyShared",
+    "build-client": "vue-tsc --noEmit -p src/client && tsc -p src/client && node scripts/copyClient",
+    "build-node": "tsc -p src/node --noEmit && rollup --config rollup.config.ts --configPlugin esbuild",
+    "format": "prettier --check --write ."
   },
   "keywords": [],
   "author": "",
@@ -20,6 +25,11 @@
     "vue": "^3.2.46"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^4.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
     "@types/fs-extra": "^11.0.1",
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.11.18",
@@ -28,8 +38,12 @@
     "fs-extra": "^11.1.0",
     "minimist": "^1.2.7",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.3",
     "prompts": "^2.4.2",
     "rimraf": "^4.1.2",
+    "rollup": "^3.12.1",
+    "rollup-plugin-dts": "^5.1.1",
+    "rollup-plugin-esbuild": "^5.0.0",
     "typescript": "^4.9.5"
   }
 }
