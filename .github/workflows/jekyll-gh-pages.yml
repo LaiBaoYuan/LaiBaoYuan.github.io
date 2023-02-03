@@ -20,12 +20,12 @@ jobs:
 
       # 生成静态文件
     - name: Build
-      run:  yarn install && npm run build 
+      run:  yarn install && yarn run build 
 
 #       # 部署到 GitHub Pages 
-#     - name: Deploy
-#       uses: JamesIves/github-pages-deploy-action@releases/v3
-#       with:
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
 #         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-#         BRANCH: static
-#         FOLDER: docs/.vitepress/dist
+        BRANCH: docs
+        FOLDER: docs/.vitepress/dist
