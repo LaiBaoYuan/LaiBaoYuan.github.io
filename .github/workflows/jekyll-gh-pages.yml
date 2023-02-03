@@ -16,5 +16,4 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        branch: docs
         folder: docs/.vitepress/dist
