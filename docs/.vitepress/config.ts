@@ -1,18 +1,14 @@
-import { createRequire } from 'module'
 import { defineConfig } from 'vitepress'
 
-const require = createRequire(import.meta.url)
-const pkg = require('vitepress/package.json')
-
 export default defineConfig({
-  lang: 'en-US',
+  lang: 'en',
   title: '元宝程序员',
   description: 'The codeword youth & Frontend Coder.',
 
   lastUpdated: true,
   cleanUrls: true,
 
-  head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
+  head: [['link', { rel: 'icon', href: '/logo.png' }]],
 
   markdown: {
     headers: {
@@ -46,11 +42,6 @@ export default defineConfig({
       apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
       indexName: 'vitepress'
     },
-
-    carbonAds: {
-      code: 'CEBDT27Y',
-      placement: 'vuejsorg'
-    }
   }
 })
 
@@ -58,19 +49,6 @@ function nav() {
   return [
     { text: 'Guide', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
     { text: 'Configs', link: '/config/introduction', activeMatch: '/config/' },
-    {
-      text: pkg.version,
-      items: [
-        {
-          text: 'Changelog',
-          link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
-        },
-        {
-          text: 'Contributing',
-          link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
-        }
-      ]
-    }
   ]
 }
 
