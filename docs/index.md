@@ -1,20 +1,23 @@
 ---
 layout: home
 
-title: VitePress
-titleTemplate: Vite & Vue Powered Static Site Generator
+title: 元宝程序员
+titleTemplate: The codeword youth & Frontend Coder.
 
 hero:
-  name: VitePress
-  text: Vite & Vue Powered Static Site Generator
-  tagline: Simple, powerful, and performant. Meet the modern SSG framework you've always wanted.
+  name: 元宝程序员
+  text: The codeword youth & Frontend Coder.
+  tagline: Record learning, share life and knowledge.
+  image:
+    src: /logo.png
+    alt: Logo
   actions:
     - theme: brand
       text: Get Started
       link: /guide/getting-started
     - theme: alt
-      text: View on GitHub
-      link: https://github.com/vuejs/vitepress
+      text: Subscribe My GitHub
+      link: https://github.com/LaiBaoYuan
 
 features:
   - title: "Vite: The DX that can't be beat"

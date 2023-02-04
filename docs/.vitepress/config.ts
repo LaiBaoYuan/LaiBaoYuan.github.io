@@ -6,8 +6,8 @@ const pkg = require('vitepress/package.json')
 
 export default defineConfig({
   lang: 'en-US',
-  title: 'VitePress',
-  description: 'Vite & Vue powered static site generator.',
+  title: '元宝程序员',
+  description: 'The codeword youth & Frontend Coder.',
 
   lastUpdated: true,
   cleanUrls: true,
@@ -22,7 +22,7 @@ export default defineConfig({
 
   themeConfig: {
     nav: nav(),
-
+    logo: '/logo.png',
     sidebar: {
       '/guide/': sidebarGuide(),
       '/config/': sidebarConfig()
@@ -38,8 +38,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present Evan You'
+      copyright: 'Copyright © 2023 LaiBaoYuan'
     },
 
     algolia: {
