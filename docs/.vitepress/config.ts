@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { type DefaultTheme } from 'vitepress/theme'
 
 export default defineConfig({
   lang: 'en',
@@ -20,18 +21,13 @@ export default defineConfig({
     nav: nav(),
     logo: '/logo.png',
     sidebar: {
-      '/guide/': sidebarGuide(),
-      '/config/': sidebarConfig()
+      '/lifes': sidebarLife(),
+      '/notes/frontend': sidebarFrontend(),
+      '/notes/backend': sidebarBackend(),
+      '/articles/': sidebarConfig()
     },
 
-    editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
-      text: 'Edit this page on GitHub'
-    },
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/LaiBaoYuan' }],
 
     footer: {
       copyright: 'Copyright © 2023 LaiBaoYuan'
@@ -41,87 +37,82 @@ export default defineConfig({
       appId: '8J64VVRP8K',
       apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
       indexName: 'vitepress'
-    },
+    }
   }
 })
 
-function nav() {
+function nav(): DefaultTheme.NavItem[] {
   return [
-    { text: 'Guide', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
-    { text: 'Configs', link: '/config/introduction', activeMatch: '/config/' },
-  ]
-}
-
-function sidebarGuide() {
-  return [
+    { text: 'Lifes', link: '/lifes/README', activeMatch: '/lifes/' },
+    { text: 'Articles', link: '/articles/README', activeMatch: '/articles/' },
     {
-      text: 'Introduction',
-      collapsed: false,
-      items: [
-        { text: 'What is VitePress?', link: '/guide/what-is-vitepress' },
-        { text: 'Getting Started', link: '/guide/getting-started' },
-        { text: 'Configuration', link: '/guide/configuration' },
-        { text: 'Routing', link: '/guide/routing' },
-        { text: 'Deploying', link: '/guide/deploying' },
-        { text: 'Internationalization', link: '/guide/i18n' }
-      ]
-    },
-    {
-      text: 'Writing',
-      collapsed: false,
-      items: [
-        { text: 'Markdown', link: '/guide/markdown' },
-        { text: 'Asset Handling', link: '/guide/asset-handling' },
-        { text: 'Frontmatter', link: '/guide/frontmatter' },
-        { text: 'Using Vue in Markdown', link: '/guide/using-vue' },
-        { text: 'API Reference', link: '/guide/api' }
-      ]
-    },
-    {
-      text: 'Theme',
-      collapsed: false,
-      items: [
-        { text: 'Introduction', link: '/guide/theme-introduction' },
-        { text: 'Nav', link: '/guide/theme-nav' },
-        { text: 'Sidebar', link: '/guide/theme-sidebar' },
-        { text: 'Prev Next Link', link: '/guide/theme-prev-next-link' },
-        { text: 'Edit Link', link: '/guide/theme-edit-link' },
-        { text: 'Last Updated', link: '/guide/theme-last-updated' },
-        { text: 'Layout', link: '/guide/theme-layout' },
-        { text: 'Home Page', link: '/guide/theme-home-page' },
-        { text: 'Team Page', link: '/guide/theme-team-page' },
-        { text: 'Badge', link: '/guide/theme-badge' },
-        { text: 'Footer', link: '/guide/theme-footer' },
-        { text: 'Search', link: '/guide/theme-search' },
-        { text: 'Carbon Ads', link: '/guide/theme-carbon-ads' }
-      ]
-    },
-    {
-      text: 'Migrations',
-      collapsed: false,
+      text: 'Notes',
       items: [
         {
-          text: 'Migration from VuePress',
-          link: '/guide/migration-from-vuepress'
+          text: '前端',
+          link: '/notes/frontend/README'
         },
         {
-          text: 'Migration from VitePress 0.x',
-          link: '/guide/migration-from-vitepress-0'
+          text: '后端',
+          link: '/notes/backend/README'
         }
-      ]
+      ],
+      activeMatch: '/notes/'
     }
   ]
 }
 
-function sidebarConfig() {
+function sidebarFrontend(): DefaultTheme.SidebarItem[] {
+  return [{ text: 'Introduction', link: '/notes/frontend/README' }]
+}
+
+function sidebarBackend(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Config',
+      text: 'Introduction',
+      collapsed: false,
+      items: [{ text: 'backend', link: '/notes/backend/README' }]
+    }
+  ]
+}
+
+function sidebarConfig(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'Introduction', link: '/articles/README' },
+    { text: 'mongodb集群搭建', link: '/articles/mongodb集群搭建' },
+    {
+      text: '别再用垃圾ngrok进行内网穿透了',
+      link: '/articles/别再用垃圾ngrok进行内网穿透了'
+    },
+    {
+      text: '小白如何开发一个属于自己的网站',
+      link: '/articles/小白如何开发一个属于自己的网站'
+    },
+    { text: '你对域名知多少?', link: '/articles/你对域名知多少' }
+  ]
+}
+
+function sidebarLife(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'Introduction', link: '/lifes/README' },
+    {
+      text: '2023',
+      collapsed: false,
       items: [
-        { text: 'Introduction', link: '/config/introduction' },
-        { text: 'App Configs', link: '/config/app-configs' },
-        { text: 'Theme Configs', link: '/config/theme-configs' },
-        { text: 'Frontmatter Configs', link: '/config/frontmatter-configs' }
+        {
+          text: '2023-01-09',
+          link: '/lifes/2023-01-09'
+        }
+      ]
+    },
+    {
+      text: '2022',
+      collapsed: false,
+      items: [
+        {
+          text: '2022-12-04',
+          link: '/lifes/2022-12-04'
+        }
       ]
     }
   ]

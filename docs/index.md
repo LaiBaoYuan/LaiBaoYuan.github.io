@@ -2,33 +2,34 @@
 layout: home
 
 title: 元宝程序员
-titleTemplate: The codeword youth & Frontend Coder.
+titleTemplate: The codeword Youth & Frontend Coder.
 
 hero:
   name: 元宝程序员
-  text: The codeword youth & Frontend Coder.
+  text: The Codeword Youth & Frontend Coder.
   tagline: Record learning, share life and knowledge.
   image:
     src: /logo.png
     alt: Logo
   actions:
     - theme: brand
-      text: Get Started
-      link: /guide/getting-started
+      text: About Me
+      link: /introduction
     - theme: alt
-      text: Subscribe My GitHub
+      text: View My GitHub
       link: https://github.com/LaiBaoYuan
 
-# features:
-#   - title: "Vite: The DX that can't be beat"
-#     details: Feel the speed of Vite. Instant server start and lightning fast HMR that stays fast regardless of the app size.
-#   - title: Designed to be simplicity first
-#     details: With Markdown-centered content, it's built to help you focus on writing and deployed with minimum configuration.
-#   - title: Power of Vue meets Markdown
-#     details: Enhance your content with all the features of Vue in Markdown, while being able to customize your site with Vue.
-#   - title: Fully static yet still dynamic
-#     details: Go wild with true SSG + SPA architecture. Static on page load, but engage users with 100% interactivity from there.
-# ---
-
-
-# <VPTeamMembers />
+features:
+  - title: "About My Life"
+    details: In this section, you can get some details about my life, and it's best way to know what I doing recently.
+    linkText: Read more
+    link: /lifes/README
+  - title: About My Article
+    details: In this section, you can see the record of my usual study, Compared with notes，the article content will be miscellaneous.
+    linkText: Read more
+    link: /articles/README
+  - title: About My Note
+    details: In this section, you can see some notes that are systematically classified and I think may be useful to you.
+    linkText: Read more
+    link: /notes/README
+---
