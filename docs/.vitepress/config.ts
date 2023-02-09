@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { type DefaultTheme } from 'vitepress/theme'
+import logoBase64 from './logoBase64'
 
 export default defineConfig({
   lang: 'en',
@@ -19,7 +20,7 @@ export default defineConfig({
 
   themeConfig: {
     nav: nav(),
-    logo: '/logo.png',
+    logo: logoBase64,
     sidebar: {
       '/lifes': sidebarLife(),
       '/notes/frontend': sidebarFrontend(),
