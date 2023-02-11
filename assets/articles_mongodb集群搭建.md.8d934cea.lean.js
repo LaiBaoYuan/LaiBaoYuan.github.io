@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,d as l}from"./app.baa7ecd7.js";const A=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"articles/mongodb集群搭建.md","lastUpdated":1675936343000}'),o={name:"articles/mongodb集群搭建.md"},p=l("",36),e=[p];function t(c,r,y,D,F,C){return a(),n("div",null,e)}const d=s(o,[["render",t]]);export{A as __pageData,d as default};

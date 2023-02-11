@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as r,d as i}from"./app.baa7ecd7.js";const x=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"articles/你对域名知多少.md","lastUpdated":1676093087000}'),o={name:"articles/你对域名知多少.md"},n=i("",37),t=[n];function c(d,l,s,h,p,m){return r(),a("div",null,t)}const f=e(o,[["render",c]]);export{x as __pageData,f as default};

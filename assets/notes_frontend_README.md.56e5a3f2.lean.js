@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as r,d as t}from"./app.baa7ecd7.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"notes/frontend/README.md","lastUpdated":1675936343000}'),n={name:"notes/frontend/README.md"},s=t("",15),o=[s];function i(d,h,c,l,p,_){return r(),e("div",null,o)}const f=a(n,[["render",i]]);export{u as __pageData,f as default};
