@@ -1,7 +1,12 @@
+---
+title: Mongodb 集群搭建
+---
+::: tip 前言
 hello大家好!，我是`元宝`，最近开发遇到一个问题，也就是工作中后端会常常遇到的一个问题，如何保证事务的**原子性**。由于涉及到许多操作，例如用docker搭建mongo集群、mongo配置，特此记录一下🥹
+:::
 
 ## Atomicity 原子性
->保证事务中所有要执行的操作**要么同时成功**，**要么同时失败**，即使其中一个操作出现问题，其他的上下操作都不会执行成功。
+保证事务中所有要执行的操作**要么同时成功**，**要么同时失败**，即使其中一个操作出现问题，其他的上下操作都不会执行成功。
 
 例如，订单提交的时候，如果消费者使用了优惠券，我们会开启一个事物来执行两部操作：
 - 优惠券数量减1
@@ -50,11 +55,11 @@ router.get('/test', async (req, res) => {
 ## Replica Set
 中文翻译叫做**副本集**，mongo中的集群也叫副本集，其实简单来说就是集群当中包含了多份数据，保证主节点挂掉了，备节点能继续提供数据服务，提供的前提就是数据需要和主节点一致。
 
-![](https://files.mdnice.com/user/36542/2c9b3489-4978-425f-a7a6-d8196aac5802.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304155613879.png)
 Mongodb(M)表示主节点，Mongodb(S)表示备节点，Mongodb(A)表示仲裁节点。主备节点存储数据，仲裁节点不存储数据。客户端同时连接主节点与备节点，不连接仲裁节点。
 
 
-## 搭建集群(手把手)
+## 搭建集群
 1. 创建一个三个节点，对应三个文件夹
 ```sh
 #三个目录分别对应主，备，仲裁节点
@@ -157,23 +162,20 @@ services:
   })
   ```
   显示这样就说明成功了
-![](https://files.mdnice.com/user/36542/eb836e5d-98e1-4213-9cc4-4d4792e8fe7b.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304155702105.png)
   9. 查看集群状态`rs.status()`
   
-![](https://files.mdnice.com/user/36542/a6595a14-57b0-4f5e-97f3-6f8840f889a8.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304155740611.png)
   10. 测试副本集数据是否会同步
   
   - 随便插入一条数据`db.test.insert({name:'lby'})`
   - 查询`db.test.find()`
   
-![](https://files.mdnice.com/user/36542/7963f08c-d576-410f-8626-c6f872248dc8.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304155815008.png)
   切换从节点的容器查看，不过要先执行`rs.secondaryOk()`,因为从节点默认是**不提供查询服务的**，只提供数据的备份以及主节点挂掉之后从节点能晋升为主节点。
   
-![](https://files.mdnice.com/user/36542/21926d6e-9a59-4c5c-b56b-a372d13eb57f.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304155835135.png)
 数据一致！！！完结散花🌹
-
-## 看都看到这里了,还不点波关
->还在当冤大头花大价钱买vpn嘛，**下期讲解如何自己搭建自己的vpn**，学废之后妈妈再也不用当心我逛不了外网了🥹🥹🥹
 
 
   
