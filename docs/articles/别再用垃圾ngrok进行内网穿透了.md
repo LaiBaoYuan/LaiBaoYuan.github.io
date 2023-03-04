@@ -1,6 +1,12 @@
+---
+title: 别再用垃圾ngrok进行内网穿透了
+---
+
+::: tip 前言
 hello，大家好，我是`元宝`，最近在接触微信小程序支付的功能，然后要接收微信服务器发来的支付回调，所以微信后台要设置消息推送的配置，结果让我看到了这个很难受的提示
-![](https://files.mdnice.com/user/36542/aeeff9df-b31f-4a2a-8c75-bce4502005fb.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304160806764.png)
 什么！！！一个月只能修改`三次`，我靠(因为我使用的内网穿透工具每次重新启动`地址都会变更`，每次变更都要修改，所以根本不切实际)
+:::
 
 这里先科普一下什么是`内网穿透`
 
@@ -15,9 +21,9 @@ hello，大家好，我是`元宝`，最近在接触微信小程序支付的功�
 >前提条件：一台**公网ip**的服务器
 1. github访问这个仓库`fatedier/frp`
 2. 在relase中找到自己系统架构的源码文件，本地和服务器都要进行下载(也可以本地下载好上传至服务器)
-![](https://files.mdnice.com/user/36542/db29282c-86b6-4f17-a888-715ffae3ba6e.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304160829549.png)
 3. 解压下载的源码可以看到文件夹内有两个配置文件`frpc.ini`和`frps.ini`,带`c`后缀的是客户端配置文件，带`s`后缀的是服务器配置
-![](https://files.mdnice.com/user/36542/40a1abff-5a03-4066-8ac2-a1d9aab4763a.png)
+![](https://aliyun.workdomain.cloud/github/image-20230304160853987.png)
 4. 在服务器上打开`frps.ini`，修改配置如下
 ```sh
 [common]
@@ -49,5 +55,3 @@ remote_port = 7001
 ```
 7. 本地启动`./frpc -c ./frpc.ini`
 8. 测试，如果有配置域名就访问`http://域名:7001`，如果没有就访问`http://服务器ip:7001`，这样就可以访问本地的服务啦
-
-看到看到这里了，还不关注学点技术嘛....

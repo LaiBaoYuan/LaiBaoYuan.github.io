@@ -1,0 +1,9 @@
+@mixin avatar($size, $circle: false) {
+    height: $size;
+    @if $circle {
+        width: $size / 2;
+    }
+}
+.square {
+    @include avatar(100px, $circle: true);
+}
