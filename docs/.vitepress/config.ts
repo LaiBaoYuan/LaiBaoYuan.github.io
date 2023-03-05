@@ -1,6 +1,13 @@
 import { defineConfig } from 'vitepress'
 import { type DefaultTheme } from 'vitepress/theme'
 import logoBase64 from './logoBase64'
+import {
+  sidebarArticle,
+  sidebarBackend,
+  sidebarFrontend,
+  sidebarLife
+} from './siderbar'
+
 import markdownItRuby from 'markdown-it-ruby'
 import markdownItImplicitFigures from 'markdown-it-implicit-figures'
 import markdownItImsize from 'markdown-it-imsize'
@@ -30,7 +37,6 @@ export default defineConfig({
         .use(markdownItImplicitFigures, { figcaption: true })
         .use(markdownItImsize)
     }
-    // lineNumbers: true
   },
 
   themeConfig: {
@@ -40,7 +46,7 @@ export default defineConfig({
       '/lifes': sidebarLife(),
       '/notes/frontend': sidebarFrontend(),
       '/notes/backend': sidebarBackend(),
-      '/articles/': sidebarConfig()
+      '/articles/': sidebarArticle()
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/LaiBaoYuan' }],
@@ -78,110 +84,6 @@ function nav(): DefaultTheme.NavItem[] {
         }
       ],
       activeMatch: '/notes/'
-    }
-  ]
-}
-
-function sidebarFrontend(): DefaultTheme.SidebarItem[] {
-  return [
-    { text: '前端简介', link: '/notes/frontend/README' },
-    {
-      text: 'Sass',
-      collapsed: false,
-      items: [
-        {
-          text: 'Sass 变量',
-          link: '/notes/frontend/Sass/Sass变量'
-        },
-        {
-          text: 'Sass 数据类型',
-          link: '/notes/frontend/Sass/Sass数据类型'
-        },
-        {
-          text: 'Sass 插值',
-          link: '/notes/frontend/Sass/Sass插值'
-        },
-        {
-          text: 'Sass 函数',
-          link: '/notes/frontend/Sass/Sass函数'
-        },
-        {
-          text: 'Sass 控制指令',
-          link: '/notes/frontend/Sass/Sass控制指令'
-        },
-        {
-          text: 'Sass 混合指令',
-          link: '/notes/frontend/Sass/Sass混合指令'
-        },
-        {
-          text: 'Sass 函数指令',
-          link: '/notes/frontend/Sass/Sass函数指令'
-        },
-        {
-          text: 'Sass 继承指令',
-          link: '/notes/frontend/Sass/Sass继承指令'
-        },
-        {
-          text: 'Sass 导入指令',
-          link: '/notes/frontend/Sass/Sass导入指令'
-        },
-        {
-          text: 'Sass 扩展',
-          link: '/notes/frontend/Sass/Sass扩展'
-        }
-      ]
-    }
-  ]
-}
-
-function sidebarBackend(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: '后端简介',
-      collapsed: false,
-      items: [{ text: 'backend', link: '/notes/backend/README' }]
-    }
-  ]
-}
-
-function sidebarConfig(): DefaultTheme.SidebarItem[] {
-  return [
-    { text: '文章简介', link: '/articles/README' },
-    { text: 'mongodb集群搭建', link: '/articles/mongodb集群搭建' },
-    {
-      text: '别再用垃圾ngrok进行内网穿透了',
-      link: '/articles/别再用垃圾ngrok进行内网穿透了'
-    },
-    {
-      text: '小白如何开发一个属于自己的网站',
-      link: '/articles/小白如何开发一个属于自己的网站'
-    },
-    { text: '你对域名知多少?', link: '/articles/你对域名知多少' }
-  ]
-}
-
-function sidebarLife(): DefaultTheme.SidebarItem[] {
-  return [
-    { text: '生活简介', link: '/lifes/README' },
-    {
-      text: '2023',
-      collapsed: false,
-      items: [
-        {
-          text: '2023-01-09',
-          link: '/lifes/2023-01-09'
-        }
-      ]
-    },
-    {
-      text: '2022',
-      collapsed: false,
-      items: [
-        {
-          text: '2022-12-04',
-          link: '/lifes/2022-12-04'
-        }
-      ]
     }
   ]
 }

@@ -9,13 +9,14 @@
     "format": "prettier --check --write ."
   },
   "devDependencies": {
+    "@types/node": "^18.14.6",
+    "lint-staged": "^13.1.2",
     "markdown-it-implicit-figures": "^0.11.0",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-ruby": "^0.1.1",
+    "prettier": "^2.8.4",
     "simple-git-hooks": "^2.8.1",
-    "vitepress": "^1.0.0-alpha.45",
-    "lint-staged": "^13.1.2",
-    "prettier": "^2.8.4"
+    "vitepress": "^1.0.0-alpha.45"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn lint-staged"
